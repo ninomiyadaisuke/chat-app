@@ -1,20 +1,30 @@
 import firebase from 'firebase'
 
+const {
+    REACT_APP_FIREBASE_API_KEY,
+    REACT_APP_FIREBASE_AUTH_DOMAIN,
+    REACT_APP_FIREBASE_DATABASE_URL,
+    REACT_APP_FIREBASE_PROFECT_ID,
+    REACT_APP_FIREBASE_STORAGE_BUCKET,
+    REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+    REACT_APP_FIREBASE_APP_ID
+} = process.env
+
 const firebaseConfig = {
-    apiKey: "AIzaSyBexIGFPrBTIkBF8D28ZIeUV6LoaqUjVDk",
-    authDomain: "communication-chat-app.firebaseapp.com",
-    databaseURL: "https://communication-chat-app.firebaseio.com",
-    projectId: "communication-chat-app",
-    storageBucket: "communication-chat-app.appspot.com",
-    messagingSenderId: "951642583560",
-    appId: "1:951642583560:web:fda2aec7fc9677e77d97bd"
+    apiKey: REACT_APP_FIREBASE_API_KEY,
+    authDomain: REACT_APP_FIREBASE_AUTH_DOMAIN,
+    databaseURL: REACT_APP_FIREBASE_DATABASE_URL,
+    projectId: REACT_APP_FIREBASE_PROFECT_ID,
+    storageBucket: REACT_APP_FIREBASE_STORAGE_BUCKET,
+    messagingSenderId: REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+    appId: REACT_APP_FIREBASE_APP_ID
 };
 
 firebase.initializeApp(firebaseConfig)
 const database = firebase.database()
-const messageRef = database.ref('messages')
+const messagesRef = database.ref('messages')
 
 export const pushMessage = ({name, text}) => {
-    messageRef.push({name, text})
+    messagesRef.push({name, text})
 }
 
