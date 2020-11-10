@@ -26,4 +26,6 @@ yarn-error.log*
 
 /.firebaserc
 /firebase.json
+create-env-local
+/.firebase-config.js
 /.firebase
