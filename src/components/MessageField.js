@@ -16,7 +16,7 @@ const MessageField = ({ inputEl, name, setText, text }) => {
                 const text = e.target.value
                     if (text === '') return
                     if (isComposed) return 
-                    pushMessage({name: 'にのさん', text})
+                    pushMessage({name, text})
                     setText('')
                 e.preventDefault()
                 }
